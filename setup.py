@@ -10,7 +10,7 @@ import os
 
 # set version numbers
 stable_version = '0.2.8.2'
-target_version = '0.2.9'
+target_version = '0.2.9' + '.' + os.getenv('BUILD_NUMBER', '0')
 is_release = stable_version == target_version
 
 # check if easy_install is available
@@ -234,7 +234,7 @@ write_info_py()
 
 # build the 'setup' call
 setup_code = """
-setup(name='dill',
+setup(name='dill-legion-fork',
       version='%s',
       description='serialize all of python',
       long_description = '''%s''',
